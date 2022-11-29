@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.lang.Math;
-import java.util.Arrays;
 
 class Vector{
     private int[] vectorArray;
@@ -15,7 +14,7 @@ class Vector{
         for (int i = 0; i < this.vectorArray.length; i++){
             dotProduct += this.vectorArray[i] * vectorV.getVectorArray()[i];
         }
-        System.out.println("dotProduct:" + dotProduct);
+
         return dotProduct;
     }
     
@@ -25,14 +24,14 @@ class Vector{
         for (int i = 0; i < vectorArrayAny.length; i++){
             intermediateAddition += Math.pow(vectorArrayAny[i], 2);
         }
-        
+
         return Math.sqrt(intermediateAddition);
     }
 
     public double computeCosineCoefficient(Vector vectorV){
-        return Math.acos((this.computeDotProduct(vectorV)) / (
+        return Math.toDegrees(Math.acos((this.computeDotProduct(vectorV)) / (
             this.computeMagnitude(this.vectorArray) * this.computeMagnitude(vectorV.getVectorArray())
-        ));
+        )));
     }
 
     public int[] getVectorArray(){
@@ -59,7 +58,7 @@ class Vectors {
     }
 
     static void findCosineMeasure(Vector vectorU, Vector vectorV){
-        System.out.println(vectorU.computeCosineCoefficient(vectorV));
+        System.out.println("Cosine coefficient:" + vectorU.computeCosineCoefficient(vectorV));
     }
 
     static int[] convertToIntArray(String[] vectorArray){
